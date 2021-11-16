@@ -6,9 +6,11 @@ RUN mamba install -y \
     r-palmerpenguins \
     r-patchwork \
     r-ggrepel \
+    r-ggforce \
   && fix-permissions "${CONDA_DIR}" \
   && fix-permissions "/home/${NB_USER}" \
   && mamba clean --all -y \
   && jupyter serverextension enable nbgitpuller --sys-prefix
+  
 
 COPY .Rprofile /home/${NB_USER}/
